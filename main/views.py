@@ -33,10 +33,3 @@ class AdsView(generics.ListCreateAPIView):
 class ImageView(generics.GenericAPIView):
     queryset = Image.objects.all()
     serializer_class = ImageSerializers
-
-    def post(self, request):
-        serializer = self.serializer_class(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-        print(serializer.errors)
-        return Response(serializer.data, status=status.HTTP_200_OK)
