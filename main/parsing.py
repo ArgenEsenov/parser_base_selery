@@ -117,9 +117,8 @@ params = {
         'category_id': 0, # категория товара (пример: 1317 - Электроника, 1501 - Транспорт, 1484 - Животные и тд)
         'per-page':10, # количество результатов на странице
         'currency': 'KGS',   # валюта. Доступны: KGS, USD
-
-
 }
+
 
 def theand ():
         async def main():
@@ -138,10 +137,11 @@ def theand ():
 
         asyncio.run(main())
 
+
 theand()
-# save_excel(result)
-# save_filter_json(result)
-# save_data_to_db(result)
-# logging.info(len(result))
+save_excel(result)
+save_filter_json(result)
+save_data_to_db(result)
+logging.info(len(result))
 end = time.time()
 print(end - start)

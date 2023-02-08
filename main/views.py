@@ -1,3 +1,4 @@
+import logging
 from .models import Category, Ads, Image
 from rest_framework import generics, status
 from rest_framework.response import Response
@@ -26,7 +27,7 @@ class AdsView(generics.ListCreateAPIView):
             obj = serializer.save()
             for img in images:
                 Image.objects.create(ad_id=obj.id, image=img)
-        print(serializer.errors)
+        logging.error(serializer.errors)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
