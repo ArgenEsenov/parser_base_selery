@@ -15,10 +15,10 @@ class Category(models.Model):
 class Ads(models.Model):
     user = models.ForeignKey(User, verbose_name='Пользователь', on_delete=models.CASCADE)
     category = models.ForeignKey(Category, verbose_name='Категория', on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200, verbose_name='Заголовок')
     price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
-    description = models.TextField(blank=True)
-    phone = models.CharField(max_length=500)
+    description = models.TextField(blank=True, verbose_name='Oписание')
+    phone = models.CharField(max_length=500, verbose_name='Телефон номер')
     create_ad = models.DateTimeField('Дата создания', auto_now_add=True)
 
 
